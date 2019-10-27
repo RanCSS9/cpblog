@@ -1,0 +1,86 @@
+<!DOCTYPE html<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>CPAB</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<h2>Welcome <%= @user.first_name %>!</h2>
+		<div class="headergroups">
+		<form action="/sessions/<= @user.id >" method="post" class="headerbtns">
+			    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			    <input type="hidden" name="_method" value="delete">
+			    <input type="submit" value="Logout" class="btn btn-danger">
+			</form>
+			<a href="/" class="btn btn-primary">Home</a>
+
+			<a href="/sessions/<%= @user.id %>" class="btn btn-primary" class="headerbtns">Dashboard</a>
+			<a href="/users/<%= @user.id %>/edit" class="btn btn-warning" class="headerbtns">Edit User</a>
+
+			<form action="/users/<%= @user.id %>" method="post" class="headerbtns">
+			    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			    <input type="hidden" name="_method" value="delete">
+			    <input type="submit" value="Delete User" class="btn btn-danger">
+			</form>
+		</div>
+		<div class="jumbotron">
+			<!-- <a href="/" class="btn btn-primary">Home/ Logout</a> -->
+
+
+			<!-- --------BELOW IS POST FORM---------- -->
+			<%= flash[:error] %>
+			<form action="/posts" method="post" class="content">
+			    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			    <textarea type="text/html" name="content" placeholder="New post here . . ."></textarea>
+			    <input type="submit" value="Submit" class="btn btn-primary">
+			</form>
+			<h2>All Posts</h2>
+			<% @post.sort_by(&:created_at).reverse.each do |post| %>
+			<br>
+			<div>
+				<%= post.content %> <h4>Posted by: <%=post.user.first_name %> <%=post.user.last_name %> <%= post.created_at %></h4>
+
+
+<!-- 				SET UP SO ONLY IN USER CAN CLICK SEE EDIT BUTTON. -->
+				
+
+				<% if current_user == post.user %>
+				<a href="/posts/<%= post.id%>/edit" class="btn btn-success" type="submit" name="edit" value="Edit">Edit</a>
+				<% end %>
+
+				<% if current_user == post.user %>
+				<form action="/posts/<%= post.id%>" method="post" class="destroyers">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			    	<input type="hidden" name="_method" value="delete">
+			    	<input type="submit" value="Delete" class="btn btn-danger">
+				</form>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+
+
+
+
+	<!-- jQuery CDN -->
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<!-- Bootstrap Js CDN -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- jQuery Custom Scroller CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+</body>
+</html>

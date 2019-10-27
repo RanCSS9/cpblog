@@ -1,0 +1,34 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+* { margin: 0; padding: 0}
+
+body {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-color: rgba(255, 255, 255, 0.9); /* Color white with alpha 0.9*/
+	background-position: center center;
+	background-size: cover;
+	h1 { 
+		text-align: center;
+		color: #181915;
+	}
+}
+
+.container {
+	background-color: #dbaa55;
+	max-width: 970px;
+	background-color: white;
+	margin: 0 auto;
+
+}
+.jumbotron {
+	background-color: black;
+	// background-image: image-url('/assets/XRqTyG.jpg');
+	background-repeat: repeat;
+	background-size: 100% 100%;
+	background-position: center;
+	text-align: center;
+}
