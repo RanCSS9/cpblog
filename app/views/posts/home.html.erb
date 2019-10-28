@@ -25,12 +25,10 @@
                 </div>
                 <ul class="list-unstyled CTAs">
                     <li><a href="">Blog</a></li>
-                    <li><a href="">About Us</a></li>
-                	<li><a href="">About Us</a></li>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="/sessions/new">Login</a></li>
+                	<li><a href="/users/new">Register</a></li>
                     <li><a href="">Legal</a></li>
                     <li><a href="">Contact Us</a></li>
-                    <li><a href="">Legal</a></li>
                     <li id="specialCase"><form action="sessions/<= @sesh.id >" method="post">
                         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                         <input type="hidden" name="_method" value="delete">
