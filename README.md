@@ -23,5 +23,5 @@ Things you may want to cover:
 
 * ...
 # cpblog
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/RanCSS9/cpblog/blob/master/CPBlogScreenShot.png)
 
