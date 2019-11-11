@@ -1,27 +1,4 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # cpblog
+This project is hosted on AWS EC2 instance. The purpose of this site is to show an understanding of Ruby on Rails using postgres DB. The project is under production to eventuallly be used as an official Cerebral Palsy blog site.
 ![alt text](https://github.com/RanCSS9/cpblog/blob/master/CPBlogScreenShot.png)
 
