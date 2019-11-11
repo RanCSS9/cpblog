@@ -23,3 +23,5 @@ Things you may want to cover:
 
 * ...
 # cpblog
+![alt text](http://url/to/img.png)
+
