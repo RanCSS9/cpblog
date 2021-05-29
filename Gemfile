@@ -1,8 +1,9 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
+# gem "rails"
 
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'rails',      '6.0.3.2'
 gem 'puma',       '4.3.5'
@@ -11,7 +12,6 @@ gem 'webpacker',  '4.2.2'
 gem 'turbolinks', '5.2.1'
 gem 'jbuilder',   '2.10.0'
 gem 'bootsnap',   '1.4.6', require: false
-gem 'mimemagic', '0.3.5'
 
 group :development, :test do
   gem 'sqlite3', '1.4.2'
